@@ -12,20 +12,23 @@ class View {
       let mark = this.game.currentPlayer;
       this.game.playMove(pos);
       $square.attr("id", mark);
+      $square.text(mark.toUpperCase());
     } catch (MoveError) {
       alert("Invalid Move");
+    }
+    if (this.game.isOver()) {
+      let winner = this.game.winner();
+      if (winner) {
+        alert("The Winner is: " + winner.toUpperCase());
+      } else {
+        alert("The Game is a Draw");
+      }
     }
   }
 
   bindEvents() {
     this.$el.on("click", event => {
       let $square = $(event.target);
-      // console.log(this instanceof View);
-      // console.log(this.__proto__);
-      // console.log(this.prototype);
-      // console.log($square);
-      // console.log(this.$el);
-      // console.log($square instanceof HTMLElement)
       this.makeMove($square);
     });
   }

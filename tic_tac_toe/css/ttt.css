@@ -16,6 +16,14 @@
   background-color: yellow;
 }
 
+#x,
+#o {
+  text-align: center;
+  line-height: 175px;
+  font-size: 100px;
+  font-weight: 700;
+}
+
 #x {
   background-color: red;
 }
